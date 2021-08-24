@@ -1,24 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { useState } from 'react';
 import './App.css';
+import GameField from './components/GameField';
 
 function App() {
+  const [xStep, setXStep] = useState(true)
+  const [gameState, setGameState] = useState([
+    ['', '', ''],
+    ['', '', ''],
+    ['', '', '']
+  ])
+
+  function changeState(x: number, y: number) {
+    let newGameState = [...gameState];
+    if (!newGameState[y][x]) newGameState[y][x] = (xStep ? 'X' : 'O');
+    else return;
+    setXStep(!xStep)
+    setGameState(newGameState);
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h3>Ход {(xStep ? 'X' : 'O')}</h3>
+      <GameField gameState={gameState} changeState={changeState} />
     </div>
   );
 }
