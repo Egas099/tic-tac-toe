@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import { FC } from 'react'
-import '../App.css'
 
 interface SquareProps {
     state: string;
@@ -11,19 +10,24 @@ interface SquareProps {
 
 const Square: FC<SquareProps> = ({ state, x, y, changeState }) => {
 
-    function click(event: React.MouseEvent) {
-        console.log(x, y);
+    function click() {
         changeState(x, y)
     }
 
+    function getState() {
+        switch (state) {
+            case 'X': return 'is-x';
+            case 'O': return 'is-o';
+            default: return 'is-empty';
+        }
+    }
+
     return (
-        <div className="square__wrapper">
+        <div className="square__wrapper" draggable="false">
             <div
-                className={['square '
-                    + (state === 'X' ? 'square--is-x' : '')
-                    + (state === 'O' ? 'square--is-o' : '')
-                ].join(' ')}
-                onClick={click}>{state}</div>
+                className={'square neumorphism   square--' + getState()}
+                onClick={click}>
+            </div>
         </div>
     )
 }

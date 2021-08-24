@@ -1,0 +1,31 @@
+.wrapper{
+  height: 30px;
+  box-sizing: border-box;
+  padding: 5px 5px 0 5px;
+}
+.content{
+  background-color: var(--ui-bg-color);
+  border-radius: 2px;
+  border: 1px rgba(0, 0, 0, 0.1) solid;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon{
+  margin-right: 5px;
+  cursor: pointer;
+}
+
+.icon:hover{
+  animation: refresh .5s  infinite;
+}
+
+@keyframes refresh {
+  from {
+    transform: rotate(0)
+  }
+  to {
+    transform: rotate(360deg)
+  }
+}
