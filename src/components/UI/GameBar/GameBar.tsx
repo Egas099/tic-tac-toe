@@ -2,19 +2,15 @@ import React, { FC } from 'react'
 import styles from './GameBar.module.css'
 
 interface GameBarProps {
-    step: boolean;
-    end: boolean;
+    title: string;
     restart: Function;
 }
 
-const GameBar: FC<GameBarProps> = ({ step, end, restart }) => {
+const GameBar: FC<GameBarProps> = ({ title, restart }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.content + " neumorphism"}>
-                {end
-                    ? <div>GameOver</div>
-                    : <div>{"Ход " + (step ? 'X' : 'O')}</div>
-                }
+                <div className={styles.title}>{title}</div>
                 <div onClick={() => restart()} className={"fa fa-refresh " + styles.icon} aria-hidden="true" />
             </div>
         </div>

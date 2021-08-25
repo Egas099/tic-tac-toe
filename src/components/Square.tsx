@@ -3,15 +3,15 @@ import { FC } from 'react'
 
 interface SquareProps {
     state: string;
-    x: number;
-    y: number;
+    number: number;
     changeState: Function;
+    outLine: boolean;
 }
 
-const Square: FC<SquareProps> = ({ state, x, y, changeState }) => {
+const Square: FC<SquareProps> = ({ state, number, changeState, outLine }) => {
 
     function click() {
-        changeState(x, y)
+        changeState(number)
     }
 
     function getState() {
@@ -25,7 +25,7 @@ const Square: FC<SquareProps> = ({ state, x, y, changeState }) => {
     return (
         <div className="square__wrapper" draggable="false">
             <div
-                className={'square neumorphism   square--' + getState()}
+                className={'square neumorphism square--' + getState() + (outLine ? ' out ' : '')}
                 onClick={click}>
             </div>
         </div>

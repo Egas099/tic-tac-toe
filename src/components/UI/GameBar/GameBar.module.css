@@ -17,6 +17,10 @@
   cursor: pointer;
 }
 
+.title{
+  margin: 0 5px;
+}
+
 .icon:hover{
   animation: refresh .5s  infinite;
 }
