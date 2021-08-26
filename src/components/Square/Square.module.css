@@ -1,0 +1,45 @@
+.wrapper {
+    display: flex;
+}
+
+.content {
+    box-sizing: border-box;
+    width: 60px;
+    height: 60px;
+    margin: 2px;
+    border-radius: 2px;
+    font-size: 200%;
+    cursor: pointer;
+    background-color: var(--default-bg-color);
+}
+
+.is_empty:hover {
+    background-color: var(--hover-bg-color);
+}
+
+.is_x {
+    background-color: rgb(196, 212, 228);
+}
+
+.is_o {
+    background-color: rgb(207, 178, 178);
+}
+
+.is_x::before {
+    content: 'X';
+    line-height: 60px;
+}
+
+.is_o::before {
+    line-height: 60px;
+    content: 'O';
+}
+
+.neumorphism {
+    box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.4), -1px -1px 3px rgba(255, 255, 255, 1);
+}
+
+.outline {
+    border: 1px rgb(0, 255, 149) solid;
+    box-shadow: 0 0 5px rgb(0, 255, 149), 0 0 9px rgb(0, 255, 149) inset;
+}

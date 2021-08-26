@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import './css/App.css';
-import GameBar from './components/UI/GameBar/GameBar';
-import GameField from './components/GameField';
+import GameBar from './components/GameBar/GameBar';
+import GameField from './components/GameField/GameField';
 
 function App() {
   const defaultGameState = ['', '', '', '', '', '', '', '', ''];
@@ -85,10 +85,10 @@ function App() {
     setEndGame(true);
     switch (viner) {
       case 'x_vin':
-        setTitle('      X vin!');
+        setTitle('X vin!');
         break;
       case 'o_vin':
-        setTitle('      O vin!');
+        setTitle('O vin!');
         break;
       default:
         setTitle('Standoff');
