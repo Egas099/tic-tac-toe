@@ -4,11 +4,10 @@ import styles from './GameField.module.css';
 
 interface GameFieldProps {
     gameState: string[];
-    changeState: Function;
     vinLine: Set<number>;
 }
 
-const GameField: FC<GameFieldProps> = ({ gameState, changeState, vinLine }) => {
+const GameField: FC<GameFieldProps> = ({ gameState, vinLine }) => {
     return (
         <div className={styles.wrapper}>
             <div className={styles.content}>
@@ -18,7 +17,6 @@ const GameField: FC<GameFieldProps> = ({ gameState, changeState, vinLine }) => {
                             <Square
                                 key={i * 3 + j}
                                 number={i * 3 + j}
-                                changeState={changeState}
                                 state={gameState[i * 3 + j]}
                                 outline={vinLine.has(i * 3 + j)}
                             />
